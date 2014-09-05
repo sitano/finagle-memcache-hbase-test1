@@ -7,12 +7,13 @@ Usage
 =====
 
 1. install hbase docker instance using [dajobe hbase 0.94.11 docker instance](https://github.com/dajobe/hbase-docker).
-2. build your [finagle](https://github.com/twitter/finagle)
+2. build you [finagle](https://github.com/twitter/finagle)
    [6.20.0](https://github.com/twitter/finagle/archive/6.20.0.zip) and publish it locally into ivy2 / mvn.
    preinstall `thrift` compiler first.
 3. install `metrics` table using `data/hbase.schema`. put it into your `hbase shell`
-4. get you [HPaste](https://github.com/GravityLabs/HPaste)
-5. build `echo 'assembly' | ./sbt`
+4. build you [HPaste](https://github.com/GravityLabs/HPaste)
+   [0.1.24](https://github.com/GravityLabs/HPaste/archive/gravity-hpaste_2.10-0.1.24.zip)
+5. build `./sbt assembly`
 6. run
 7. put something in the system using memcached protocol
 
@@ -29,6 +30,31 @@ How to build finagle
     $ git co 6.20.0
     - fix scala compiler version to 2.10.4 in Build.scala
     $ ./sbt compile publishLocal publishM2
+
+How to build HPaste
+====================
+
+    - get a source
+    - fix scala version to 2.10.4 in pom.xml
+    - disable tests before build. add <skipTests>true</skipTests> to surefire configuration.
+
+    $ mvn clean install
+
+Use this SBT plugin to publish artifacts to ivy2 local cache: [sbt-maven-plugin](https://github.com/shivawu/sbt-maven-plugin)
+
+plugins.sbt:
+
+    addSbtPlugin("com.github.shivawu" % "sbt-maven-plugin" % "0.1.3-SNAPSHOT")
+
+    resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
+build.sbt
+
+    resolvers += "Thrift 0.2 is here" at "http://people.apache.org/~rawson/repo/"
+
+publish
+
+    $ ./sbt publishLocal
 
 Building
 ========

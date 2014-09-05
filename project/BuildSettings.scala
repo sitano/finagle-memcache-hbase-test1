@@ -30,7 +30,15 @@ object BuildSettings {
     jarName in assembly := { name.value + "-" + version.value + ".jar" },
 
     excludedJars in assembly <<= (fullClasspath in assembly) map { cp =>
-      val excludes = Set[String]()
+      val excludes = Set[String](
+        "servlet-api-2.5-20081211.jar",
+        "servlet-api-2.5-6.1.14.jar",
+        "jsp-api-2.1-6.1.14.jar",
+        "jsp-2.1-6.1.14.jar",
+        "jsr311-api-1.1.1.jar",
+        "stax-api-1.0-2.jar",
+        "libthrift-0.5.0-1.jar"
+      )
       cp filter { jar => excludes(jar.data.getName) }
     },
 

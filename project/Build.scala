@@ -12,7 +12,8 @@ object FinagleMemcacheHBaseTest1ProjectBuild extends Build {
     .settings(buildSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
-        "com.twitter" %% "finagle-memcached" % "6.20.0"
+        "com.twitter" %% "finagle-memcached" % "6.20.0",
+        "com.gravity" %% "gravity-hpaste" % "0.1.24"
       )
     )
 }
