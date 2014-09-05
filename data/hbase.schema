@@ -1,0 +1,11 @@
+# Table: metrics
+# Row key: [metric_source_uid]_[timestamp]
+# Columns: data:min, data:avg, data:max
+
+# To read:
+# http://wiki.apache.org/hadoop/Hbase/Shell
+# http://opentsdb.net/docs/build/html/user_guide/backends/hbase.html
+# http://hbase.apache.org/book/rowkey.design.html
+# http://hbase.apache.org/book/schema.casestudies.html
+
+create 'metrics', {NAME => 'data', VERSIONS => 1}
