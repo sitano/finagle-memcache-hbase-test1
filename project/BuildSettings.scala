@@ -11,7 +11,11 @@ object BuildSettings {
     "Maven Repository" at "http://mvnrepository.com/artifact/",
     "releases" at "http://oss.sonatype.org/content/repositories/releases",
     "snapshots" at "http://oss.sonatype.org/content/repositories/snapshots",
-    "Sonatype OSS Repo 2" at "https://oss.sonatype.org/content/groups/scala-tools")
+    "Sonatype OSS Repo 2" at "https://oss.sonatype.org/content/groups/scala-tools",
+
+    "Apache HBase" at "https://repository.apache.org/content/repositories/releases",
+    "Thrift" at "http://people.apache.org/~rawson/repo/"
+    )
 
   lazy val basicSettings = Seq[Setting[_]](
     organization  := "com.ivan",
@@ -37,7 +41,13 @@ object BuildSettings {
         "jsp-2.1-6.1.14.jar",
         "jsr311-api-1.1.1.jar",
         "stax-api-1.0-2.jar",
-        "libthrift-0.5.0-1.jar"
+        "libthrift-0.5.0-1.jar",
+        "jline-0.9.94.jar",
+        "commons-beanutils-1.7.0.jar",
+        "commons-beanutils-core-1.8.0.jar",
+        "ant-1.6.5.jar",
+        "netty-3.2.4.Final.jar",
+        "slf4j-log4j12-1.4.3.jar"
       )
       cp filter { jar => excludes(jar.data.getName) }
     },

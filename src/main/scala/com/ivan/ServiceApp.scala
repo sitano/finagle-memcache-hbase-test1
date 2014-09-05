@@ -55,8 +55,17 @@ class Server(address: SocketAddress) {
         System.out.println("Snapshot done at " + new Date(ts))
 
         // Try to put data into db
+        // TODO: simple stupid code to write down results
+        // TODO: it is not safe of course
         future {
-          System.out.println("TODO: push to HBase at " + new Date(ts))
+          var count = 0
+          while (!aggregator.isEmpty) {
+            val x = aggregator.iterator.next()
+            Schema.put(x._1, x._2)
+            aggregator -= x._1
+            count += 1
+          }
+          System.out.println("Push to HBase at " + new Date(ts) + ", saved = " + count)
         }
       }
     }

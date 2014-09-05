@@ -11,11 +11,9 @@ Usage
    [6.20.0](https://github.com/twitter/finagle/archive/6.20.0.zip) and publish it locally into ivy2 / mvn.
    preinstall `thrift` compiler first.
 3. install `metrics` table using `data/hbase.schema`. put it into your `hbase shell`
-4. build you [HPaste](https://github.com/GravityLabs/HPaste)
-   [0.1.24](https://github.com/GravityLabs/HPaste/archive/gravity-hpaste_2.10-0.1.24.zip)
-5. build `./sbt assembly`
-6. run
-7. put something in the system using memcached protocol
+4. build `./sbt assembly`
+5. run
+6. put something in the system using memcached protocol
 
 What is that
 ============
@@ -31,8 +29,8 @@ How to build finagle
     - fix scala compiler version to 2.10.4 in Build.scala
     $ ./sbt compile publishLocal publishM2
 
-How to build HPaste
-====================
+How to build HPaste (do not needed rn)
+======================================
 
     - get a source
     - fix scala version to 2.10.4 in pom.xml
