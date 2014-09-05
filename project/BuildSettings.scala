@@ -25,6 +25,8 @@ object BuildSettings {
   import sbtassembly.Plugin._
   import AssemblyKeys._
   lazy val sbtAssemblySettings = assemblySettings ++ Seq(
+    mainClass in assembly := Some("com.ivan.ServiceApp"),
+
     jarName in assembly := { name.value + "-" + version.value + ".jar" },
 
     excludedJars in assembly <<= (fullClasspath in assembly) map { cp =>
@@ -34,6 +36,7 @@ object BuildSettings {
 
     mergeStrategy in assembly <<= (mergeStrategy in assembly) {
       (old) => {
+        case "com/twitter/common/args/apt/cmdline.arg.info.txt.1" => MergeStrategy.first
         case x => old(x)
       }
     }

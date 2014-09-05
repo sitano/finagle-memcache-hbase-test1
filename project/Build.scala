@@ -12,8 +12,7 @@ object FinagleMemcacheHBaseTest1ProjectBuild extends Build {
     .settings(buildSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
-        // Test
-        "org.specs2" %% "specs2" % "2.4.2" % "test"
+        "com.twitter" %% "finagle-memcached" % "6.20.0"
       )
     )
 }
