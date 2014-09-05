@@ -49,7 +49,9 @@ Run
 Put data into it
 ================
 
-    printf "set cpu.usage 0 0 2\n12\n" | nc 127.0.0.1 11211
+    printf "set cpu0.usage 0 0 2\n12\n" | nc 127.0.0.1 11211
+    printf "set cpu0.usage 0 0 2\n24\n" | nc 127.0.0.1 11211
+    printf "set cpu1.usage 0 0 1\n2\n" | nc 127.0.0.1 11211
 
 Unit testing
 ============
